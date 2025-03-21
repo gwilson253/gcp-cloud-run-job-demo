@@ -1,0 +1,10 @@
+steps:
+  # Build Docker image and push to Artifact Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "us-west1-docker.pkg.dev/$PROJECT_ID/demo-repo/demo-job", "."]
+
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "us-west1-docker.pkg.dev/$PROJECT_ID/demo-repo/demo-job"]
+
+images:
+  - "us-west1-docker.pkg.dev/$PROJECT_ID/demo-repo/demo-job"
